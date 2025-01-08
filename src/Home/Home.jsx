@@ -1,16 +1,19 @@
 import styles from "./Home.module.css"
 import { gsap } from "gsap"
-import { useRef,useEffect,useState } from "react"
+import { useRef,useEffect,useState, useContext } from "react"
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import logo from "../assets/Logo.png";
 import background from "../assets/Playground.jpg";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../AppContext";
 
 gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
 function Home(){
+
+    const {score}=useContext(AppContext);
 
     const headerGSAP=useRef();
     const logoTaglineGSAP=useRef();
@@ -159,7 +162,7 @@ function Home(){
     return(
         <>
             <div ref={headerGSAP} className={styles.heading}>
-                Your league
+                <div style={{fontSize:"40px"}}>Score : {score}</div>
                 <div className={styles.head}>
                     <button className={hovered1?styles.headButtonEnter:styles.headButtonExit} onMouseEnter={() => setHovered1(true)} onMouseLeave={() => setHovered1(false)} onClick={toProfile}>Profile</button>
                     <button className={hovered2?styles.headButtonEnter:styles.headButtonExit} onMouseEnter={() => setHovered2(true)} onMouseLeave={() => setHovered2(false)} onClick={() => gsap.to(window,{scrollTo:benefitsGSAP.current,duration:1})}>About us</button>

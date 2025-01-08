@@ -50,3 +50,21 @@ img{
     background-color: white;
     color:black;
 }
+
+.homePage{
+    position: fixed;
+    top:5px;
+    left:5px;
+    width:100px;
+    height:50px;
+    background-color:rgb(0, 162, 0);
+    font-size: 20px;
+    text-shadow: 2px 1px 4px black;
+    box-shadow: 2px 2px 4px black;
+    color:white;
+    border-radius: 15px;
+}
+
+.homePage:hover{
+    background-color: rgb(1, 127, 1);
+}
