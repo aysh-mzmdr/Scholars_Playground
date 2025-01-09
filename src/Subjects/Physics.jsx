@@ -1,7 +1,7 @@
 import styles from "./Subjects.module.css"
 import physicsImage from "../assets/Physics.jpg"
 import { AppContext } from "../AppContext";
-import { useContext } from "react";
+import { useContext,useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Physics(){
@@ -10,16 +10,22 @@ function Physics(){
     const {incorrect,updateIncorrect}=useContext(AppContext)
     const {questions,updateQuestions}=useContext(AppContext)
 
+    const [correctButton1,updateCorrectButton1]=useState(styles.unanswered)
+    const [correctButton2,updateCorrectButton2]=useState(styles.unanswered)
+    const [correctButton3,updateCorrectButton3]=useState(styles.unanswered)
+    const [correctButton4,updateCorrectButton4]=useState(styles.unanswered)
+    const [correctButton5,updateCorrectButton5]=useState(styles.unanswered)
+
     const correctHandle=(id)=> {
         const buttons=document.getElementById(id).querySelectorAll("button");
-        buttons.forEach((button) => {button.disabled=true});
+        buttons.forEach((button) => {button.disabled=true;button.classList.replace(styles.unanswered,styles.answered)});
         updateScore(score+100);
         updateQuestions(questions+1);
     }
     
     const incorrectHandle=(id)=> {
         const buttons=document.getElementById(id).querySelectorAll("button");
-        buttons.forEach((button) => {button.disabled=true});
+        buttons.forEach((button) => {button.disabled=true;button.classList.replace(styles.unanswered,styles.answered)});
         updateScore(score-70);
         updateIncorrect(incorrect+1);
         updateQuestions(questions+1);
@@ -38,38 +44,38 @@ function Physics(){
             <div className={styles.middle}>
                  <div id="Q1" className={styles.question}>
                     <p>Q1. Who gave the famous equation : e=mc^2 ?</p>
-                    <button onClick={() => incorrectHandle("Q1")}>Issac Newton</button>
-                    <button onClick={() => incorrectHandle("Q1")}>de Broglie</button>
-                    <button className="correct" onClick={() => correctHandle("Q1")}>Albert Einstein</button>
-                    <button onClick={() => incorrectHandle("Q1")}>Neil Bohr</button> 
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q1");updateCorrectButton1(styles.correct)}}>Issac Newton</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q1");updateCorrectButton1(styles.correct)}}>de Broglie</button>
+                    <button className={correctButton1} onClick={() => {correctHandle("Q1");updateCorrectButton1(styles.correct)}}>Albert Einstein</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q1");updateCorrectButton1(styles.correct)}}>Neil Bohr</button> 
                 </div>
                 <div id="Q2" className={styles.question}>
                     <p>Q2. What are the concentric circles joining points in the same phase called?</p>
-                    <button onClick={() => incorrectHandle("Q2")}>Equipotential Surface</button>
-                    <button className="correct" onClick={() => correctHandle("Q2")}>Wavefront</button>
-                    <button onClick={() => incorrectHandle("Q2")}>Gaussian Surface</button>
-                    <button onClick={() => incorrectHandle("Q2")}>Shellfront</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q2");updateCorrectButton2(styles.correct)}}>Equipotential Surface</button>
+                    <button className={correctButton2} onClick={() => {correctHandle("Q2");updateCorrectButton2(styles.correct)}}>Wavefront</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q2");updateCorrectButton2(styles.correct)}}>Gaussian Surface</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q2");updateCorrectButton2(styles.correct)}}>Shellfront</button>
                 </div>
                 <div id="Q3" className={styles.question}>
                     <p>Q3. On moving a body in equipotential surface, work done is equal to?</p>
-                    <button onClick={() => incorrectHandle("Q3")}>Positive</button>
-                    <button className="correct" onClick={() => correctHandle("Q3")}>0</button>
-                    <button onClick={() => incorrectHandle("Q3")}>Negative</button>
-                    <button onClick={() => incorrectHandle("Q3")}>Can't say</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q3");updateCorrectButton3(styles.correct)}}>Positive</button>
+                    <button className={correctButton3} onClick={() => {correctHandle("Q3");updateCorrectButton3(styles.correct)}}>0</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q3");updateCorrectButton3(styles.correct)}}>Negative</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q3");updateCorrectButton3(styles.correct)}}>Can't say</button>
                 </div>
                 <div id="Q4" className={styles.question}>
                     <p>Q4. Who stated that matter has dual nature?</p>
-                    <button onClick={() => incorrectHandle("Q4")}>Issac Newton</button>
-                    <button className="correct" onClick={() => correctHandle("Q4")}>de Broglie</button>
-                    <button onClick={() => incorrectHandle("Q4")}>Albert Einstein</button>
-                    <button onClick={() => incorrectHandle("Q4")}>Neil Bohr</button> 
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q4");updateCorrectButton4(styles.correct)}}>Issac Newton</button>
+                    <button className={correctButton4} onClick={() => {correctHandle("Q4");updateCorrectButton4(styles.correct)}}>de Broglie</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q4");updateCorrectButton4(styles.correct)}}>Albert Einstein</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q4");updateCorrectButton4(styles.correct)}}>Neil Bohr</button> 
                 </div>
                 <div id="Q5" className={styles.question}>
                     <p>Q5. What is the weight of electron?</p>
-                    <button onClick={() => incorrectHandle("Q5")}>Weightless</button>
-                    <button onClick={() => incorrectHandle("Q5")}>2.4*10^-24 Kg</button>
-                    <button className="correct" onClick={() => correctHandle("Q5")}>9.1*10^-31 Kg</button>
-                    <button onClick={() => incorrectHandle("Q5")}>2.4*10^-27 Kg</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>Weightless</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>2.4*10^-24 Kg</button>
+                    <button className={correctButton5} onClick={() => {correctHandle("Q5");updateCorrectButton5(styles.correct)}}>9.1*10^-31 Kg</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>2.4*10^-27 Kg</button>
                 </div>
             </div>
         </>

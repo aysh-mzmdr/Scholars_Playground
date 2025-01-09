@@ -34,7 +34,7 @@ img{
     border:2px solid white;
 }
 
-.question button{
+.unanswered{
     font-size: 25px;
     font-weight: 700;
     width:100%;
@@ -46,10 +46,43 @@ img{
     transition: background-color 0.5s;
 } 
 
-.question button:hover{
+.unanswered:hover{
     background-color: white;
     color:black;
 }
+
+.answered{
+    font-size: 25px;
+    font-weight: 700;
+    width:100%;
+    margin:20px;
+    background-color:rgb(57, 57, 57);
+    color:rgb(160, 160, 160);
+    padding: 10px;
+}
+
+.correct{
+    font-size: 25px;
+    font-weight: 700;
+    width:100%;
+    margin:20px;
+    background-color:green;
+    color:rgb(160, 160, 160);
+    border: 2px solid green;
+    padding: 10px;
+}
+
+.incorrect{
+    font-size: 25px;
+    font-weight: 700;
+    width:100%;
+    margin:20px;
+    background-color:red;
+    color:rgb(160, 160, 160);
+    border: 2px solid red;
+    padding: 10px;
+}
+
 
 .homePage{
     position: fixed;
@@ -68,3 +101,4 @@ img{
 .homePage:hover{
     background-color: rgb(1, 127, 1);
 }
+

@@ -1,7 +1,7 @@
 import styles from "./Subjects.module.css"
 import computerImage from "../assets/Computer.jpg"
 import { AppContext } from "../AppContext";
-import { useContext } from "react";
+import { useContext,useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Computer(){
@@ -10,21 +10,26 @@ function Computer(){
     const {incorrect,updateIncorrect}=useContext(AppContext)
     const {questions,updateQuestions}=useContext(AppContext)
 
+    const [correctButton1,updateCorrectButton1]=useState(styles.unanswered)
+    const [correctButton2,updateCorrectButton2]=useState(styles.unanswered)
+    const [correctButton3,updateCorrectButton3]=useState(styles.unanswered)
+    const [correctButton4,updateCorrectButton4]=useState(styles.unanswered)
+    const [correctButton5,updateCorrectButton5]=useState(styles.unanswered)
+    
     const correctHandle=(id)=> {
         const buttons=document.getElementById(id).querySelectorAll("button");
-        buttons.forEach((button) => {button.disabled=true});
+        buttons.forEach((button) => {button.disabled=true;button.classList.replace(styles.unanswered,styles.answered)});
         updateScore(score+100);
         updateQuestions(questions+1);
     }
-    
+
     const incorrectHandle=(id)=> {
         const buttons=document.getElementById(id).querySelectorAll("button");
-        buttons.forEach((button) => {button.disabled=true});
+        buttons.forEach((button) => {button.disabled=true;button.classList.replace(styles.unanswered,styles.answered)});
         updateScore(score-70);
         updateIncorrect(incorrect+1);
         updateQuestions(questions+1);
     }
-
 
     const navigate=useNavigate();
     const toHome =() => {navigate("../Scholars_Playground/");};
@@ -39,38 +44,38 @@ function Computer(){
             <div className={styles.middle}>
                 <div id="Q1" className={styles.question}>
                     <p>Q1. Which of the following is an Object-Based programming language ?</p>
-                    <button onClick={() => incorrectHandle("Q1")}>Java</button>
-                    <button onClick={() => incorrectHandle("Q1")}>Python</button>
-                    <button onClick={() => incorrectHandle("Q1")}>C</button>
-                    <button className="correct" onClick={() => correctHandle("Q1")}>Ada</button> 
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q1");updateCorrectButton1(styles.correct)}}>Java</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q1");updateCorrectButton1(styles.correct)}}>Python</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q1");updateCorrectButton1(styles.correct)}}>C</button>
+                    <button className={correctButton1} onClick={() => {correctHandle("Q1");updateCorrectButton1(styles.correct)}}>Ada</button> 
                 </div>
                 <div id="Q2" className={styles.question}>
                     <p>Q2. Which of the following is a programming language?</p>
-                    <button onClick={() => incorrectHandle("Q2")}>Seviper</button>
-                    <button className="correct" onClick={() => correctHandle("Q2")}>Ditto</button>
-                    <button onClick={() => incorrectHandle("Q2")}>Caterpie</button>
-                    <button onClick={() => incorrectHandle("Q2")}>Slugma</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q2");updateCorrectButton2(styles.correct)}}>Seviper</button>
+                    <button className={correctButton2} onClick={() => {correctHandle("Q2");updateCorrectButton2(styles.correct)}}>Ditto</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q2");updateCorrectButton2(styles.correct)}}>Caterpie</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q2");updateCorrectButton2(styles.correct)}}>Slugma</button>
                 </div>
                 <div id="Q3" className={styles.question}>
                     <p>3.What was Java originally known as?</p>
-                    <button className="correct" onClick={() => correctHandle("Q3")}>Oak</button>
-                    <button onClick={() => incorrectHandle("Q3")}>Timber</button>       
-                    <button onClick={() => incorrectHandle("Q3")}>Sandlewood</button>
-                    <button onClick={() => incorrectHandle("Q3")}>Coffee</button>
+                    <button className={correctButton3} onClick={() => {correctHandle("Q3");updateCorrectButton3(styles.correct)}}>Oak</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q3");updateCorrectButton3(styles.correct)}}>Timber</button>       
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q3");updateCorrectButton3(styles.correct)}}>Sandlewood</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q3");updateCorrectButton3(styles.correct)}}>Coffee</button>
                 </div>
                 <div id="Q4" className={styles.question}>
                     <p>Q4. What is the programming language python named after?</p>
-                    <button onClick={() => incorrectHandle("Q4")}>Snake</button>
-                    <button className="correct" onClick={() => correctHandle("Q4")}>TV Series</button>
-                    <button onClick={() => incorrectHandle("Q4")}>It was just a random name</button>
-                    <button onClick={() => incorrectHandle("Q4")}>Perth</button> 
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q4");updateCorrectButton4(styles.correct)}}>Snake</button>
+                    <button className={correctButton4} onClick={() => {correctHandle("Q4");updateCorrectButton4(styles.correct)}}>TV Series</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q4");updateCorrectButton4(styles.correct)}}>It was just a random name</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q4");updateCorrectButton4(styles.correct)}}>Perth</button> 
                 </div>
                 <div id="Q5" className={styles.question}>
                     <p>Q5. Which of the following technologies has been used in Pokemon Go?</p>
-                    <button onClick={() => incorrectHandle("Q5")}>Metaverse</button>
-                    <button onClick={() => incorrectHandle("Q5")}>Hologram</button>
-                    <button onClick={() => incorrectHandle("Q5")}>Virtual Reality</button>
-                    <button className="correct" onClick={() => correctHandle("Q5")}>Augmented Reality</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>Metaverse</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>Hologram</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>Virtual Reality</button>
+                    <button className={correctButton5} onClick={() => {correctHandle("Q5");updateCorrectButton5(styles.correct)}}>Augmented Reality</button>
                 </div>            
             </div>
         </>
