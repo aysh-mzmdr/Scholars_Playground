@@ -7,16 +7,31 @@ import { useNavigate } from "react-router-dom";
 function Chemistry(){
 
     const {score,updateScore}=useContext(AppContext)
-    const {incorrect,updateIncorrect}=useContext(AppContext)
+    const {incorrect,updateIncorrect}=useContext(AppContext)                        // Calling variables from AppContext.jsx to use them here
     const {questions,updateQuestions}=useContext(AppContext)
 
     const [correctButton1,updateCorrectButton1]=useState(styles.unanswered)
     const [correctButton2,updateCorrectButton2]=useState(styles.unanswered)
-    const [correctButton3,updateCorrectButton3]=useState(styles.unanswered)
+    const [correctButton3,updateCorrectButton3]=useState(styles.unanswered)         // Declaring update functions for changing styles for correct option buttons
     const [correctButton4,updateCorrectButton4]=useState(styles.unanswered)
     const [correctButton5,updateCorrectButton5]=useState(styles.unanswered)
 
-    const [league,updateLeague]=useState("Unranked")
+    const correctHandle=(id)=> {                        // Function to handle correct answering
+        const buttons=document.getElementById(id).querySelectorAll("button");
+        buttons.forEach((button) => {button.disabled=true;button.classList.replace(styles.unanswered,styles.answered)});
+        updateScore(score+100);
+        updateQuestions(questions+1);
+    }
+
+    const incorrectHandle=(id)=> {                      // Function to handle incorrect answering
+        const buttons=document.getElementById(id).querySelectorAll("button");
+        buttons.forEach((button) => {button.disabled=true;button.classList.replace(styles.unanswered,styles.answered)});
+        updateScore(score-70);
+        updateIncorrect(incorrect+1);
+        updateQuestions(questions+1);
+    }
+
+    const [league,updateLeague]=useState("Unranked")    // Declaring league and updateLeague to store and update user's current league
 
     useEffect(() => {
         if(score>=10000)
@@ -34,21 +49,6 @@ function Chemistry(){
         else if(score>=500)
             updateLeague(<div style={{color:"hsl(35, 100.00%, 50.00%)",paddingLeft:"15px"}}>Bronze</div>);
     },[score])
-
-    const correctHandle=(id)=> {
-        const buttons=document.getElementById(id).querySelectorAll("button");
-        buttons.forEach((button) => {button.disabled=true;button.classList.replace(styles.unanswered,styles.answered)});
-        updateScore(score+100);
-        updateQuestions(questions+1);
-    }
-    
-    const incorrectHandle=(id)=> {
-        const buttons=document.getElementById(id).querySelectorAll("button");
-        buttons.forEach((button) => {button.disabled=true;button.classList.replace(styles.unanswered,styles.answered)});
-        updateScore(score-70);
-        updateIncorrect(incorrect+1);
-        updateQuestions(questions+1);
-    }
 
     const navigate=useNavigate();
     const toHome =() => {navigate("../Scholars_Playground/");};

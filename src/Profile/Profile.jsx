@@ -10,13 +10,13 @@ function Profile(){
     const profileData=useRef();
 
     const {score}=useContext(AppContext)
-    const {incorrect}=useContext(AppContext)
+    const {incorrect}=useContext(AppContext)                // Calling variables from AppContext.jsx to use them here
     const {questions}=useContext(AppContext)
 
     const navigate=useNavigate();
     const toHome =() => {navigate("../Scholars_Playground/");};
 
-    const [league,updateLeague]=useState("Unranked")
+    const [league,updateLeague]=useState("Unranked")        // Declaring league and updateLeague to store and update user's current league
 
     useEffect(() => {
         if(score>=10000)

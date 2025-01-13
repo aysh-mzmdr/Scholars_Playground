@@ -7,23 +7,23 @@ import { useNavigate } from "react-router-dom";
 function GK(){
 
     const {score,updateScore}=useContext(AppContext)
-    const {incorrect,updateIncorrect}=useContext(AppContext)
+    const {incorrect,updateIncorrect}=useContext(AppContext)                                // Calling variables from AppContext.jsx to use them here
     const {questions,updateQuestions}=useContext(AppContext)
 
     const [correctButton1,updateCorrectButton1]=useState(styles.unanswered)
     const [correctButton2,updateCorrectButton2]=useState(styles.unanswered)
-    const [correctButton3,updateCorrectButton3]=useState(styles.unanswered)
+    const [correctButton3,updateCorrectButton3]=useState(styles.unanswered)                 // Declaring update functions for changing styles for correct option buttons
     const [correctButton4,updateCorrectButton4]=useState(styles.unanswered)
     const [correctButton5,updateCorrectButton5]=useState(styles.unanswered)
         
-    const correctHandle=(id)=> {
+    const correctHandle=(id)=> {                    // Function to handle correct answering
         const buttons=document.getElementById(id).querySelectorAll("button");
         buttons.forEach((button) => {button.disabled=true;button.classList.replace(styles.unanswered,styles.answered)});
         updateScore(score+100);
         updateQuestions(questions+1);
     }
     
-    const incorrectHandle=(id)=> {
+    const incorrectHandle=(id)=> {                  // Function to handle incorrect answering
         const buttons=document.getElementById(id).querySelectorAll("button");
         buttons.forEach((button) => {button.disabled=true;button.classList.replace(styles.unanswered,styles.answered)});
         updateScore(score-70);
@@ -31,7 +31,7 @@ function GK(){
         updateQuestions(questions+1);
     }
 
-    const [league,updateLeague]=useState("Unranked")
+    const [league,updateLeague]=useState("Unranked")     // Declaring league and updateLeague to store and update user's current league
     
     useEffect(() => {
         if(score>=10000)

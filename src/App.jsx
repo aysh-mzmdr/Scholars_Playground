@@ -19,13 +19,13 @@ function App() {
           <Route path="/Scholars_Playground/profile" element={<Profile/>}/>
           <Route path="/Scholars_Playground/physics" element={<Physics/>}/>
           <Route path="/Scholars_Playground/chemistry" element={<Chemistry/>}/>
-          <Route path="/Scholars_Playground/mathematics" element={<Maths/>}/>
+          <Route path="/Scholars_Playground/mathematics" element={<Maths/>}/> 
           <Route path="/Scholars_Playground/general_knowledge" element={<GK/>}/>
           <Route path="/Scholars_Playground/computer" element={<Computer/>}/>
         </Routes>
       </Router>
     </AppProvider>
   )
-}
+}                               // Declaring hyperlinks for the website
 
 export default App

@@ -14,15 +14,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Home(){
 
-    const {score}=useContext(AppContext);
+    const {score}=useContext(AppContext);                       // Calling score varibale from AppContext.jsx                
 
     const headerGSAP=useRef();
     const logoTaglineGSAP=useRef();
-    const benefitsGSAP=useRef();
+    const benefitsGSAP=useRef();                                // Creating references for each section of the page
     const playgroundGSAP=useRef();
     const instructionsGSAP=useRef();
 
-    const [league,updateLeague]=useState("Unranked")
+    const [league,updateLeague]=useState("Unranked")            // Declaring league and updateLeague to store and update user's current league
 
     useEffect(() => {
         if(score>=10000)
@@ -32,7 +32,7 @@ function Home(){
         else if(score>=5000)
             updateLeague(<div style={{color:"hsl(120, 67.50%, 39.80%)",paddingLeft:"15px"}}>Emerald</div>);
         else if(score>=4000)
-            updateLeague(<div style={{color:"hsl(183, 57.90%, 47.50%)",paddingLeft:"15px"}}>Diamond</div>);
+            updateLeague(<div style={{color:"hsl(183, 57.90%, 47.50%)",paddingLeft:"15px"}}>Diamond</div>);             // Updating user's league
         else if(score>=2500)
             updateLeague(<div style={{color:"gold",paddingLeft:"15px"}}>Gold</div>);
         else if(score>=1500)
@@ -41,7 +41,7 @@ function Home(){
             updateLeague(<div style={{color:"hsl(35, 100.00%, 50.00%)",paddingLeft:"15px"}}>Bronze</div>);
     },[score])
 
-    useEffect(() => {
+    useEffect(() => {                                       // Adding GSAP Animations
         gsap.fromTo(headerGSAP.current,
             {y:100,opacity:0,},
             {y:0,opacity:1,duration:1.5,})
@@ -165,11 +165,6 @@ function Home(){
         })
     })
 
-    const [hovered1,setHovered1]=useState(false)
-    const [hovered2,setHovered2]=useState(false)
-    const [hovered3,setHovered3]=useState(false)
-    const [hovered4,setHovered4]=useState(false)
-
    const navigate=useNavigate();
    const toProfile =() => {navigate("/Scholars_Playground/profile");};              // Doing this because hooks can't be called directly inside return statement
    const toPhysics =() => {navigate("/Scholars_Playground/physics");};
@@ -184,10 +179,10 @@ function Home(){
             <div ref={headerGSAP} className={styles.heading}>
                 <div style={{fontSize:"40px",display:"flex"}}>League : {league}</div>
                 <div className={styles.head}>
-                    <button className={hovered1?styles.headButtonEnter:styles.headButtonExit} onMouseEnter={() => setHovered1(true)} onMouseLeave={() => setHovered1(false)} onClick={toProfile}>Profile</button>
-                    <button className={hovered2?styles.headButtonEnter:styles.headButtonExit} onMouseEnter={() => setHovered2(true)} onMouseLeave={() => setHovered2(false)} onClick={() => gsap.to(window,{scrollTo:benefitsGSAP.current,duration:1})}>About us</button>
-                    <button className={hovered3?styles.headButtonEnter:styles.headButtonExit} onMouseEnter={() => setHovered3(true)} onMouseLeave={() => setHovered3(false)} onClick={() => gsap.to(window,{scrollTo:playgroundGSAP.current,duration:1})}>Playground</button>
-                    <button className={hovered4?styles.headButtonEnter:styles.headButtonExit} onMouseEnter={() => setHovered4(true)} onMouseLeave={() => setHovered4(false)} onClick={() => gsap.to(window,{scrollTo:instructionsGSAP.current,duration:1})}>Instructions</button>
+                    <button className={styles.headButton} onClick={toProfile}>Profile</button>
+                    <button className={styles.headButton} onClick={() => gsap.to(window,{scrollTo:benefitsGSAP.current,duration:1})}>About us</button>
+                    <button className={styles.headButton} onClick={() => gsap.to(window,{scrollTo:playgroundGSAP.current,duration:1})}>Playground</button>
+                    <button className={styles.headButton} onClick={() => gsap.to(window,{scrollTo:instructionsGSAP.current,duration:1})}>Instructions</button>
                 </div>
             </div>
 

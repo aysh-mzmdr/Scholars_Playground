@@ -13,7 +13,7 @@
     display: flex;
 }
 
-.headButtonExit{
+.headButton{
     background-color:transparent;
     border: none;
     border-radius: 15px;
@@ -24,15 +24,9 @@
     transition: 0.5s;
 }
 
-.headButtonEnter{
-    background-color:white;
-    border: none;
-    border-radius: 15px;
+.headButton:hover{
+    background-color: white;
     color:black;
-    font-size: 20px;
-    height:70px;
-    width:150px;
-    transition: 0.5s;
 }
 
 .logoTagline{
