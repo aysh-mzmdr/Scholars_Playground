@@ -106,3 +106,125 @@ ul li{
     align-items: center;
     justify-content: center;
 }
+
+
+@media (max-width: 480px){
+    .heading {
+        color: white;
+        backdrop-filter: blur(5px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        padding: 5px 10px; 
+        z-index: 10;
+        flex-wrap: wrap; 
+    }
+    .head {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .headButton {
+        background-color: transparent;
+        border: none;
+        border-radius: 15px;
+        color: white;
+        font-size: 16px;
+        height: 50px; 
+        width: 120px; 
+        transition: 0.5s;
+        margin: 10px;
+    }
+
+    .headButton:hover {
+        background-color: white;
+        color: black;
+    }
+
+    .logoTagline {
+        height: auto; 
+        width: 100vw;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 100px;
+        padding-bottom: 10px; 
+        margin-bottom: 50px;
+    }
+
+    .benefits {
+        height: auto; 
+        width: auto; 
+        color: white;
+        opacity: 1;
+        overflow: hidden;
+        border: 2px solid white; 
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        margin: 20px auto;
+    }
+
+    .playground {
+        height: auto;
+        width: 100vw;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 50px;
+    }
+
+    .subjects {
+        background: linear-gradient(90deg, lime, rgba(255, 255, 0, 0));
+        color: white;
+        font-size: 24px;
+        height: 70px;
+        width: auto;
+        box-shadow: 2px 2px 2px black;
+        text-shadow: 2px 2px 2px black, 1px 1px 1px white;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    .instructions {
+        width: 90%;
+        color: white;
+        border: 2px solid white; 
+        border-bottom: none;
+        font-size: 20px; 
+        padding: 15px;
+        margin: 20px auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer {
+        background-color: black;
+        height: auto;
+        width: 100vw;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        text-align: center;
+    }
+
+    ul li {
+        margin-bottom: 10px;
+    }
+}
