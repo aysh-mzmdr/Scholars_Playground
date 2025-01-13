@@ -108,7 +108,7 @@ ul li{
 }
 
 
-@media (max-width: 480px){
+@media (max-width: 600px){
     .heading {
         color: white;
         backdrop-filter: blur(5px);
