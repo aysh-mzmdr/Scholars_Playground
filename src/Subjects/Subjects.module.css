@@ -83,6 +83,16 @@ img{
     padding: 10px;
 }
 
+.status{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color:white;
+    margin: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 40px;
+}
 
 .homePage{
     position: fixed;

@@ -5,6 +5,7 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import logo from "../assets/Logo.png";
 import background from "../assets/Playground.jpg";
+
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../AppContext";
 
@@ -20,6 +21,25 @@ function Home(){
     const benefitsGSAP=useRef();
     const playgroundGSAP=useRef();
     const instructionsGSAP=useRef();
+
+    const [league,updateLeague]=useState("Unranked")
+
+    useEffect(() => {
+        if(score>=10000)
+            updateLeague(<div style={{color:"hsl(350, 53%, 74%)",paddingLeft:"15px"}}>Legends</div>);
+        else if(score>=7000)
+            updateLeague(<div style={{color:"hsl(79, 70.40%, 51.00%)",paddingLeft:"15px"}}>Scholars</div>);
+        else if(score>=5000)
+            updateLeague(<div style={{color:"hsl(120, 67.50%, 39.80%)",paddingLeft:"15px"}}>Emerald</div>);
+        else if(score>=4000)
+            updateLeague(<div style={{color:"hsl(183, 57.90%, 47.50%)",paddingLeft:"15px"}}>Diamond</div>);
+        else if(score>=2500)
+            updateLeague(<div style={{color:"gold",paddingLeft:"15px"}}>Gold</div>);
+        else if(score>=1500)
+            updateLeague(<div style={{color:"silver",paddingLeft:"15px"}}>Silver</div>);
+        else if(score>=500)
+            updateLeague(<div style={{color:"hsl(35, 100.00%, 50.00%)",paddingLeft:"15px"}}>Bronze</div>);
+    },[score])
 
     useEffect(() => {
         gsap.fromTo(headerGSAP.current,
@@ -162,7 +182,7 @@ function Home(){
     return(
         <>
             <div ref={headerGSAP} className={styles.heading}>
-                <div style={{fontSize:"40px"}}>Score : {score}</div>
+                <div style={{fontSize:"40px",display:"flex"}}>League : {league}</div>
                 <div className={styles.head}>
                     <button className={hovered1?styles.headButtonEnter:styles.headButtonExit} onMouseEnter={() => setHovered1(true)} onMouseLeave={() => setHovered1(false)} onClick={toProfile}>Profile</button>
                     <button className={hovered2?styles.headButtonEnter:styles.headButtonExit} onMouseEnter={() => setHovered2(true)} onMouseLeave={() => setHovered2(false)} onClick={() => gsap.to(window,{scrollTo:benefitsGSAP.current,duration:1})}>About us</button>

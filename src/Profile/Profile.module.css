@@ -36,3 +36,8 @@
 .homePage:hover{
     background-color: rgb(1, 127, 1);
 }
+
+.league{
+    height: 1000px;
+    width: 1000px;
+}
