@@ -3,7 +3,7 @@ An interactive learning platform that uses gamification elements to engage users
 
 The `Profile` Section opens up a new page where we are notified about our name, league, score, number of incorrect answers and the number of questions attempted
 
-In the `Playground` section, we currently have five subjects each having five questions each. Each correct answer results in +100 score, while each incorrect answer results in -70 score. As we reach 500 score, we are placed in our first league, the `Bronze` league. Scores needed to reach the different leagues are metioned in the `Instructions` section. Note that after answering a particular subject, the same questions can be re-answered. This feature is kept to allow the users to revise the questions again and again, as much they want.
+In the `Playground` section, we currently have five subjects each having five questions each. Each correct answer results in +100 score, while each incorrect answer results in -70 score. As we reach 500 score, we are placed in our first league, the `Bronze` league. Scores needed to reach the different leagues are mentioned in the `Instructions` section. Note that after answering a particular subject, the same questions can be re-answered. This feature is kept to allow the users to revise the questions again and again, as much they want.
 
 The questions are MCQ type, with only 1 correct answer. The correct answer is highlighted in green after each question is answered. When all questions in a particular subject is answered, click the `Submit` button to go back to the home page.
 
