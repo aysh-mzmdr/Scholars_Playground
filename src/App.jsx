@@ -6,7 +6,6 @@ import Maths from "./Subjects/Maths.jsx"
 import GK from "./Subjects/GK.jsx"
 import Computer from "./Subjects/Computer.jsx"
 import { AppProvider } from "./AppContext.jsx"
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {

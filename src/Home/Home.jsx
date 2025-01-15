@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Home(){
 
-    const {score}=useContext(AppContext);                       // Calling score varibale from AppContext.jsx                
+    const {score}=useContext(AppContext);                       // Calling score varibale from AppContext.jsx            
 
     const headerGSAP=useRef();
     const logoTaglineGSAP=useRef();
@@ -172,8 +172,12 @@ function Home(){
    const toMaths =() => {navigate("/Scholars_Playground/mathematics");};
    const toGK =() => {navigate("/Scholars_Playground/general_knowledge");};
    const toComputer =() => {navigate("/Scholars_Playground/computer");};
-
    
+   const clickPhysics =() => toPhysics();
+   const clickChemistry =() => toChemistry();
+   const clickMaths =() =>  toMaths();
+   const clickGK =() => toGK();
+   const clickComputer =() => toComputer();
     return(
         <>
             <div ref={headerGSAP} className={styles.heading}>
@@ -196,11 +200,11 @@ function Home(){
             <div ref={playgroundGSAP} className={styles.playground}>
             <h1 style={{fontSize:"80px"}} onMouseEnter={() => gsap.to(playgroundGSAP.current.querySelectorAll("h1"),{transform:"scale(1.5)",color:"green",textShadow:"2px 2px 2px black,-1px 1px 2px yellow",duration:0.5})} onMouseLeave={() => gsap.to(playgroundGSAP.current.querySelectorAll("h1"),{transform:"scale(1)",color:"white",duration:0.5})}>Playground</h1>
                 <div class={styles.playArea} style={{display:"grid", gridTemplateColumns:"repeat(3,1fr)",gap:"50px",padding:"200px",height:"100vh",width:"100vw",backgroundImage:`url(${background})`,backgroundSize:"cover",backgroundPosition:"center",backgroundRepeat:"no-repeat"}}>
-                    <button id="B1" className={styles.subjects} onMouseEnter={() => gsap.to(playgroundGSAP.current.querySelector("#B1"),{background:"linear-gradient(90deg,rgb(8, 54, 8),rgba(255, 255, 0, 0))",transform:"scale(1.2)"})} onMouseLeave={() => gsap.to(playgroundGSAP.current.querySelector("#B1"),{background:"linear-gradient(90deg,lime,rgba(255, 255, 0, 0))",transform:"scale(1)"})} onClick={toPhysics}>Physics</button>
-                    <button id="B2" className={styles.subjects} onMouseEnter={() => gsap.to(playgroundGSAP.current.querySelector("#B2"),{background:"linear-gradient(90deg,rgb(8, 54, 8),rgba(255, 255, 0, 0))",transform:"scale(1.2)"})} onMouseLeave={() => gsap.to(playgroundGSAP.current.querySelector("#B2"),{background:"linear-gradient(90deg,lime,rgba(255, 255, 0, 0))",transform:"scale(1)"})} onClick={toChemistry}>Chemistry</button>
-                    <button id="B3" className={styles.subjects} onMouseEnter={() => gsap.to(playgroundGSAP.current.querySelector("#B3"),{background:"linear-gradient(90deg,rgb(8, 54, 8),rgba(255, 255, 0, 0))",transform:"scale(1.2)"})} onMouseLeave={() => gsap.to(playgroundGSAP.current.querySelector("#B3"),{background:"linear-gradient(90deg,lime,rgba(255, 255, 0, 0))",transform:"scale(1)"})} onClick={toMaths}>Mathematics</button>
-                    <button id="B4" className={styles.subjects} onMouseEnter={() => gsap.to(playgroundGSAP.current.querySelector("#B4"),{background:"linear-gradient(90deg,rgb(8, 54, 8),rgba(255, 255, 0, 0))",transform:"scale(1.2)"})} onMouseLeave={() => gsap.to(playgroundGSAP.current.querySelector("#B4"),{background:"linear-gradient(90deg,lime,rgba(255, 255, 0, 0))",transform:"scale(1)"})} onClick={toGK}>General Knowledge</button>
-                    <button id="B5" className={styles.subjects} onMouseEnter={() => gsap.to(playgroundGSAP.current.querySelector("#B5"),{background:"linear-gradient(90deg,rgb(8, 54, 8),rgba(255, 255, 0, 0))",transform:"scale(1.2)"})} onMouseLeave={() => gsap.to(playgroundGSAP.current.querySelector("#B5"),{background:"linear-gradient(90deg,lime,rgba(255, 255, 0, 0))",transform:"scale(1)"})} onClick={toComputer}>Computer</button>
+                    <button id="B1" className={styles.subjects} onMouseEnter={() => gsap.to(playgroundGSAP.current.querySelector("#B1"),{background:"linear-gradient(90deg,rgb(8, 54, 8),rgba(255, 255, 0, 0))",transform:"scale(1.2)"})} onMouseLeave={() => gsap.to(playgroundGSAP.current.querySelector("#B1"),{background:"linear-gradient(90deg,lime,rgba(255, 255, 0, 0))",transform:"scale(1)"})} onClick={clickPhysics}>Physics</button>
+                    <button id="B2" className={styles.subjects} onMouseEnter={() => gsap.to(playgroundGSAP.current.querySelector("#B2"),{background:"linear-gradient(90deg,rgb(8, 54, 8),rgba(255, 255, 0, 0))",transform:"scale(1.2)"})} onMouseLeave={() => gsap.to(playgroundGSAP.current.querySelector("#B2"),{background:"linear-gradient(90deg,lime,rgba(255, 255, 0, 0))",transform:"scale(1)"})} onClick={clickChemistry}>Chemistry</button>
+                    <button id="B3" className={styles.subjects} onMouseEnter={() => gsap.to(playgroundGSAP.current.querySelector("#B3"),{background:"linear-gradient(90deg,rgb(8, 54, 8),rgba(255, 255, 0, 0))",transform:"scale(1.2)"})} onMouseLeave={() => gsap.to(playgroundGSAP.current.querySelector("#B3"),{background:"linear-gradient(90deg,lime,rgba(255, 255, 0, 0))",transform:"scale(1)"})} onClick={clickMaths}>Mathematics</button>
+                    <button id="B4" className={styles.subjects} onMouseEnter={() => gsap.to(playgroundGSAP.current.querySelector("#B4"),{background:"linear-gradient(90deg,rgb(8, 54, 8),rgba(255, 255, 0, 0))",transform:"scale(1.2)"})} onMouseLeave={() => gsap.to(playgroundGSAP.current.querySelector("#B4"),{background:"linear-gradient(90deg,lime,rgba(255, 255, 0, 0))",transform:"scale(1)"})} onClick={clickGK}>General Knowledge</button>
+                    <button id="B5" className={styles.subjects} onMouseEnter={() => gsap.to(playgroundGSAP.current.querySelector("#B5"),{background:"linear-gradient(90deg,rgb(8, 54, 8),rgba(255, 255, 0, 0))",transform:"scale(1.2)"})} onMouseLeave={() => gsap.to(playgroundGSAP.current.querySelector("#B5"),{background:"linear-gradient(90deg,lime,rgba(255, 255, 0, 0))",transform:"scale(1)"})} onClick={clickComputer}>Computer</button>
                 </div>
             </div>
 

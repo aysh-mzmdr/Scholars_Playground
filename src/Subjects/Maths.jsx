@@ -57,7 +57,6 @@ function Maths(){
         <>
             <div className={styles.top}>
                 <img src={mathsImage} alt="Maths"></img>
-                <button className={styles.homePage} onClick={() => toHome()}>Back</button>
             </div>
 
              <div className={styles.status}>
@@ -102,6 +101,7 @@ function Maths(){
                     <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>16</button>
                     <button className={correctButton5} onClick={() => {correctHandle("Q5");updateCorrectButton5(styles.correct)}}>12</button>
                 </div>
+                <button className={styles.homePage} onClick={() => toHome()}>Submit</button>
             </div>
         </>
     )

@@ -58,7 +58,6 @@ function Chemistry(){
         <>
             <div className={styles.top}>
                 <img src={chemistryImage} alt="Chemistry"></img>
-                <button className={styles.homePage} onClick={() => toHome()}>Back</button>
             </div>
 
             <div className={styles.status}>
@@ -101,7 +100,8 @@ function Chemistry(){
                     <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>Neil Bohr</button>
                     <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>Victor Grignard</button>
                     <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>Ernest Rutherford</button>
-                </div>                  
+                </div>     
+                <button className={styles.homePage} onClick={() => toHome()}>Submit</button>             
             </div>
         </>
     )

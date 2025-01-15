@@ -57,7 +57,6 @@ function Physics(){
         <>
             <div className={styles.top}>
                 <img src={physicsImage} alt="Physics"></img>
-                <button className={styles.homePage} onClick={() => toHome()}>Back</button>
             </div>
 
              <div className={styles.status}>
@@ -102,6 +101,7 @@ function Physics(){
                     <button className={correctButton5} onClick={() => {correctHandle("Q5");updateCorrectButton5(styles.correct)}}>9.1*10^-31 Kg</button>
                     <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>2.4*10^-27 Kg</button>
                 </div>
+                <button className={styles.homePage} onClick={() => toHome()}>Submit</button>
             </div>
         </>
     )

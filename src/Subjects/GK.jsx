@@ -57,7 +57,6 @@ function GK(){
         <>
             <div className={styles.top}>
                 <img src={GKImage} alt="General Knowledge" style={{}}></img>
-                <button className={styles.homePage} onClick={() => toHome()}>Back</button>
             </div>
 
              <div className={styles.status}>
@@ -68,14 +67,14 @@ function GK(){
             <div className={styles.middle}>
                 <div id="Q1" className={styles.question}>
                     <p>Q1. Who build Qutub Minar ?</p>
-                    <button className={styles.unanswered}onClick={() => {incorrectHandle("Q1");updateCorrectButton1(styles.correct)}}>Mohammad Bin Tughlaq</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q1");updateCorrectButton1(styles.correct)}}>Mohammad Bin Tughlaq</button>
                     <button className={styles.unanswered} onClick={() => {incorrectHandle("Q1");updateCorrectButton1(styles.correct)}}>Akbar</button>
                     <button className={correctButton1} onClick={() => {correctHandle("Q1");updateCorrectButton1(styles.correct)}}>Qutub-ud-Din Aibak</button>
                     <button className={styles.unanswered} onClick={() => {incorrectHandle("Q1");updateCorrectButton1(styles.correct)}}>Alauddin Khalji</button> 
                 </div>
                 <div id="Q2" className={styles.question}>
                     <p>Q2. What is the brightest object in the night sky?</p>
-                    <button className={styles.unanswered} lick={() => {incorrectHandle("Q2");updateCorrectButton2(styles.correct)}}>Venus</button>
+                    <button className={styles.unanswered} onClick={() => {incorrectHandle("Q2");updateCorrectButton2(styles.correct)}}>Venus</button>
                     <button className={styles.unanswered} onClick={() => {incorrectHandle("Q2");updateCorrectButton2(styles.correct)}}>Sirus</button>
                     <button className={styles.unanswered} onClick={() => {incorrectHandle("Q2");updateCorrectButton2(styles.correct)}}>Pole star</button>
                     <button className={correctButton2} onClick={() => {correctHandle("Q2");updateCorrectButton2(styles.correct)}}>Moon</button>
@@ -101,6 +100,7 @@ function GK(){
                     <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>Dead Sea</button>
                     <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>Red Sea</button>
                 </div>
+                <button className={styles.homePage} onClick={() => toHome()}>Submit</button>
             </div>
         </>
     )

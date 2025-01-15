@@ -57,7 +57,6 @@ function Computer(){
         <>
             <div className={styles.top}>
                 <img src={computerImage} alt="Computer"></img>
-                <button className={styles.homePage} onClick={() => toHome()}>Back</button>
             </div>
 
              <div className={styles.status}>
@@ -100,7 +99,8 @@ function Computer(){
                     <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>Hologram</button>
                     <button className={styles.unanswered} onClick={() => {incorrectHandle("Q5");updateCorrectButton5(styles.correct)}}>Virtual Reality</button>
                     <button className={correctButton5} onClick={() => {correctHandle("Q5");updateCorrectButton5(styles.correct)}}>Augmented Reality</button>
-                </div>            
+                </div>
+                <button className={styles.homePage} onClick={() => toHome()}>Submit</button>            
             </div>
         </>
     )
